@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>网红派后台服务接口文档</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="jquery/jquery-1.11.3.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* Custom Styles */
+ul.nav-tabs {
+	width: 140px;
+	margin-top: 20px;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+
+ul.nav-tabs li {
+	margin: 0;
+	border-top: 1px solid #ddd;
+}
+
+ul.nav-tabs li:first-child {
+	border-top: none;
+}
+
+ul.nav-tabs li a {
+	margin: 0;
+	padding: 8px 16px;
+	border-radius: 0;
+}
+
+ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
+	color: #fff;
+	background: #0088cc;
+	border: 1px solid #0088cc;
+}
+
+ul.nav-tabs li:first-child a {
+	border-radius: 4px 4px 0 0;
+}
+
+ul.nav-tabs li:last-child a {
+	border-radius: 0 0 4px 4px;
+}
+
+ul.nav-tabs.affix {
+	top: 30px; /* Set the top position of pinned element */
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#myNav").affix({
+			offset : {
+				top : 125
+			}
+		});
+	});
+</script>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+	<div class="container">
+		<div class="jumbotron">
+			<h1>网红派后台服务接口文档</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-3" id="myScrollspy">
+				<ul class="nav nav-tabs nav-stacked" id="myNav">
+					<li class="active"><a href="#latest">最新接口</a></li>
+					<li><a href="#search">搜索接口</a></li>
+					<!-- 
+					<li><a href="#searchplayer">按主播搜索</a></li>
+					<li><a href="#searchvideo">按视频搜索</a></li>
+					 -->
+					<li><a href="#playerdetails">主播详细信息</a></li>
+					<li><a href="#videodetails">视频详细信息</a></li>					
+					<li><a href="#newplayervideo">首页新主播视频</a></li>
+					<li><a href="#hotplayervideo">首页大主播视频</a></li>
+					<li><a href="#topvideo">首页视频排行</a></li>
+					<li><a href="#preferplayer">加载人气网红</a></li>
+					<li><a href="#prefervideo">加载推荐视频</a></li>
+					<li><a href="#register">注册接口</a></li>
+					<li><a href="#login">登录接口</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-9">
+				<h3 id="latest">最新接口</h3>
+				<p>本页显示最新接口信息，接口持续更新中。。。</p>
+				<hr>
+<!-- 			
+				<h3 id="searchplayer">按主播搜索</h3>
+				<p>http://114.55.224.29/blacksheepservice/searchplayer?query=params</p>
+				<p>params对应传入的参数</p>
+				<hr>
+				
+				<h3 id="searchvideo">按视频搜索</h3>
+				<p>http://114.55.224.29/blacksheepservice/searchvideo?query=params</p>
+				<p>params对应传入的参数</p>
+				<hr>
+ -->			
+ 
+ 				<h3 id="search">搜索接口</h3>
+				<p>http://114.55.224.29/blacksheepservice/search?query=params</p>
+				<p>params对应传入的参数</p>
+				<p>tag:对应返回类型。player为主播，video为视频。</p>
+				<p>data:对应返回的详细信息。</p>
+				<p>----------主播详细信息-----------------------</p>
+				<p>uid:网红编号</p>
+				<p>series：排序编号</p>
+				<p>username：网红登录名</p>
+				<p>nickname：昵称</p>
+				<p>aboutme：网红简介</p>
+				<p>headimage：头像</p>
+				<p>region：地区</p>
+				<p>platform：网红所在平台</p>
+				<p>----------视频详细信息-----------------------</p>
+				<p>vedioID:视频编号</p>
+				<p>vediolink：视频链接</p>
+				<p>vedioDesc：视频描述</p>
+				<p>date：视频发布时间</p>
+				<p>browsers：视频浏览量</p>
+				<p>tag：视频标签</p>
+				<p>vedioimage:视频缩略图</p>
+				<p>userID：主播ID</p>
+				<hr>		
+				<h3 id="playerdetails">主播详细信息</h3>
+				<p>http://114.55.224.29/blacksheepservice/playerdetails?query=params</p>
+				<p>params对应传入的参数</p>
+				<hr>
+				
+				<h3 id="videodetails">视频详细信息</h3>
+				<p>http://114.55.224.29/blacksheepservice/videodetails?query=params</p>
+				<p>params对应传入的参数</p>
+				<hr>
+
+				<h3 id="newplayervideo">首页新主播视频</h3>
+				<p>http://114.55.224.29/blacksheepservice/newplayervideo</p>
+				<p>vedioID:视频编号</p>
+				<p>vediolink：视频链接</p>
+				<p>vedioDesc：视频描述</p>
+				<p>date：视频发布时间</p>
+				<p>browsers：视频浏览量</p>
+				<p>tag：视频标签</p>
+				<p>vedioimage:视频缩略图</p>
+				<p>userID：主播ID</p>
+				<hr>
+								
+				<h3 id="hotplayervideo">首页大主播视频</h3>
+				<p>http://114.55.224.29/blacksheepservice/hotplayervideo</p>
+				<p>vedioID:视频编号</p>
+				<p>vediolink：视频链接</p>
+				<p>vedioDesc：视频描述</p>
+				<p>date：视频发布时间</p>
+				<p>browsers：视频浏览量</p>
+				<p>tag：视频标签</p>
+				<p>vedioimage:视频缩略图</p>
+				<p>userID：主播ID</p>
+				<hr>
+
+				<h3 id="topvideo">首页视频排行</h3>
+				<p>http://114.55.224.29/blacksheepservice/topvideo</p>
+				<p>vedioID:视频编号</p>
+				<p>vediolink：视频链接</p>
+				<p>vedioDesc：视频描述</p>
+				<p>date：视频发布时间</p>
+				<p>browsers：视频浏览量</p>
+				<p>tag：视频标签</p>
+				<p>vedioimage:视频缩略图</p>
+				<hr>
+
+				<h3 id="preferplayer">加载人气网红</h3>
+				<p>http://114.55.224.29/blacksheepservice/preferplayer</p>
+				<p>uid:网红编号</p>
+				<p>series：排序编号</p>
+				<p>username：网红登录名</p>
+				<p>nickname：昵称</p>
+				<p>aboutme：网红简介</p>
+				<p>headimage：头像</p>
+				<p>region：地区</p>
+				<p>platform：网红所在平台</p>
+				<hr>
+
+				<h3 id="prefervideo">加载推荐视频</h3>
+				<p>http://114.55.224.29/blacksheepservice/prefervideo</p>
+				<p>vedioID:视频编号</p>
+				<p>series：排序编号</p>
+				<p>vediolink：视频链接</p>
+				<p>vedioDesc：视频描述</p>
+				<p>date：视频发布时间</p>
+				<p>browsers：视频浏览量</p>
+				<p>tag：视频标签</p>
+				<p>vedioimage:视频缩略图</p>
+				<hr>
+
+				<h3 id="register">注册接口</h3>
+				<p>http://114.55.224.29/blacksheepservice/register?name=username&pwd=password</p>
+				<p>username代表实际的用户名；password代表实际的用户密码。</p>
+				<p>返回值为code和message。请根据返回值判断注册结果。</p>
+				<p>01：用户名已存在！</p>
+				<p>02：注册成功！</p>
+				<p>03：用户名不能为空.</p>
+				<p>04：密码不能为空。</p>
+				<hr>
+				
+				<h3 id="login">登录接口</h3>
+				<p>http://114.55.224.29/blacksheepservice/login?name=username&pwd=password</p>
+				<p>username代表实际的用户名；password代表实际的用户密码。</p>
+				<p>返回值为code和message。请根据返回值判断注册结果。</p>
+				<p>01：用户名或密码不正确！</p>
+				<p>02：登录成功！</p>
+				<p>03：用户名不能为空.</p>
+				<p>04：密码不能为空。</p>
+				<br><br><br><br><br><br><br><br><br><br><br>
+				<br><br><br><br><br>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

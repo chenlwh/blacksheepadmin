@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+   <!DOCTYPE struts PUBLIC
+      "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd" > 
+  
+   
+   
+   <struts> 
+   
+ 
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <constant name="struts.devMode" value="true"></constant>
+
+   
+   <package  name ="party" extends ="struts-default"> 
+
+   <action name="registerUser" class="RegisterUserAction">
+     <result name="success">/admin/registerUser.jsp</result>
+   </action>
+   
+    <action name="login" class="LoginAction">
+     <result name="success">/admin/registerUser.jsp</result>
+     <result name="failure">login.jsp</result>
+   </action>
+   
+   <action name="setHotUser" class="HotUserAction">
+     <result name="success">/admin/setHotUser.jsp</result>
+     <result name="failure">login.jsp</result>
+   </action>
+   
+   <action name="addHotUser" class="HotUserAction" method="add">
+     <result name="success">/admin/setHotUser.jsp</result>
+     <result name="failure">login.jsp</result>
+   </action>
+   
+   <action name="videoAction" class="VideoAction">
+     <result name="success">/admin/videoAdd.jsp</result>
+     <result name="failure">login.jsp</result>
+   </action>
+   
+   </package > 
+   </struts >

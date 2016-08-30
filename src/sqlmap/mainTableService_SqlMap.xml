@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+    <!-- 在根元素上指定命名空间 -->
+<sqlMap namespace="mainTableService">
+    <select id="validUser" resultClass="java.util.HashMap">
+    	SELECT ID FROM PARTY_USER WHERE USERNAME = #userName#
+    </select>
+
+	<insert id="registerUser">
+		INSERT INTO PARTY_USER
+		(ID, USERNAME, PASSWORD, MD5CODE, STATUS, REGISTERDATE, ISREMEMBER, TYPE)
+		VALUES
+		(#id#,#userName#,#password#,#md5code#,#status#,#registerDate#,#isRemember#,#type#)
+	</insert>
+
+	<select id="login" resultClass="java.util.HashMap">
+		SELECT ID FROM PARTY_USER WHERE USERNAME = #userName# and password =
+		#password# and type=#type# and status="1"
+	</select>
+
+	<select id="retrieveHotUser" resultClass="java.util.HashMap">
+		SELECT id, username FROM PARTY_USER WHERE type="1" and status="1"
+	</select>
+	
+	<delete id="validHotUser">
+		DELETE FROM party_hot_player WHERE uid = #hotUser#
+	</delete>
+	
+	<insert id="addHotUser">
+		INSERT INTO PARTY_HOT_PLAYER (ID, UID, SERIES) VALUES (#id#,#hotUser#,#series#)
+	</insert>
+
+</sqlMap>
