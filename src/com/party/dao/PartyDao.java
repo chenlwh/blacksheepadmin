@@ -8,6 +8,8 @@ package com.party.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.party.beans.Video;
+
 /**
  * 
  */
@@ -18,4 +20,8 @@ public interface PartyDao{
 	
 	public List<Object> retrieveHotUser();
 	public boolean addHotUser(Map<String,String>map);
+	
+	public boolean videoAdd(Video video);
+	public List<Object> videoSummary();
+	public boolean videoPrefer(Map<String,String> map);
 }

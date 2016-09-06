@@ -49,37 +49,53 @@ if(session.getAttribute("login")==null){
 
 				<form action="videoAdd.action" class="form-horizontal">
 					<div class="form-group">
-						<label for="videoLink" class="col-sm-2 control-label"
+						<label for="video.videoLink" class="col-sm-2 control-label"
 							style="text-align: left">视频地址：</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="videoLink"
-								maxlength=32>
+							<input type="text" class="form-control" name="video.videoLink"
+								maxlength=255>
 						</div>
 
 					</div>
 
 					<div class="form-group">
-						<label for="description" class="col-sm-2 control-label"
+						<label for="video.videoDesc" class="col-sm-2 control-label"
 							style="text-align: left">视频描述：</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="description" maxlength=32>
+							<input type="text" class="form-control" name="video.videoDesc" maxlength=32>
 						</div>
 					</div>
 					
 					<div class="form-group">
-						<label for="tag" class="col-sm-2 control-label"
+						<label for="video.tag" class="col-sm-2 control-label"
 							style="text-align: left">视频标签：</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="tag" maxlength=32>
+							<input type="text" class="form-control" name="video.tag" maxlength=32>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="videoImage" class="col-sm-2 control-label"
+						<label for="video.videoImage" class="col-sm-2 control-label"
 							style="text-align: left">视频缩略图地址：</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="videoImage" maxlength=32>
+							<input type="text" class="form-control" name="video.videoImage" maxlength=255>
 						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="video.videoOwner" class="col-sm-2 control-label"
+							style="text-align: left">选择网红：</label>
+						<div class="col-sm-5">
+							<select name="video.videoOwner" class="form-control">	
+								<option></option>					
+								<s:iterator value="hotUserList" var="list">
+									<option value="${list.id }">${list.username }</option>
+								</s:iterator>
+								
+							</select>
+						</div>
+
+
 					</div>
 										
 					<div class="form-group">

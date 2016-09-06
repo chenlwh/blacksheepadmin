@@ -33,10 +33,24 @@
      <result name="failure">login.jsp</result>
    </action>
    
-   <action name="videoAction" class="VideoAction">
+   <action name="videoAddPage" class="VideoAction" method="load">
      <result name="success">/admin/videoAdd.jsp</result>
      <result name="failure">login.jsp</result>
    </action>
    
+   <action name="videoAdd" class="VideoAction">
+     <result name="success">/admin/videoAdd.jsp</result>
+     <result name="failure">login.jsp</result>
+   </action>
+   
+   <action name="videosummary" class="VideoAction" method="summary">
+     <result name="success">/admin/videoSummary.jsp</result>
+     <result name="failure">login.jsp</result>
+   </action>
+   
+   <action name="videoPrefer" class="VideoAction" method="prefer">
+     <result name="success">/admin/videoPrefer.jsp</result>
+     <result name="failure">login.jsp</result>
+   </action>   
    </package > 
    </struts >

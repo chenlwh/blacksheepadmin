@@ -43,14 +43,14 @@ if(session.getAttribute("login")==null){
 			<div class="col-md-9">
 				<div class="page-header">
 					<h1>
-						推荐视频 <small>设置</small>
+						推荐视频 
 					</h1>
 				</div>
 
-				<form action="registerUser.action" class="form-horizontal">
+				<form action="videoPrefer.action" class="form-horizontal">
 					<div class="form-group">
 						<label for="videoID" class="col-sm-2 control-label"
-							style="text-align: left">视频编码：：</label>
+							style="text-align: left">视频编码：</label>
 						<div class="col-sm-5">
 							<input type="text" class="form-control" name="videoID"
 								maxlength=32>

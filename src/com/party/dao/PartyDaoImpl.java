@@ -5,12 +5,14 @@
  */
 package com.party.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
+import com.party.beans.Video;
 import com.party.util.PartyUtil;
 
 /**
@@ -38,8 +40,10 @@ public class PartyDaoImpl extends SqlMapClientDaoSupport implements PartyDao{
 			map.put("status", status);
 			map.put("registerDate", registerDate);
 			map.put("isRemember", isRemember);
+			map.put("headImage", "/images/head.jpg");
 			
 			getSqlMapClientTemplate().insert("mainTableService.registerUser", map);
+			getSqlMapClientTemplate().insert("mainTableService.registerUserDetail", map);
 			
 			isSuccess = true;
 		}
@@ -73,5 +77,34 @@ public class PartyDaoImpl extends SqlMapClientDaoSupport implements PartyDao{
 		
 		return isSuccess;
 	}
-
+	
+	public boolean videoAdd(Video video) {
+		boolean isSuccess = false;
+		video.setVideoID(PartyUtil.getKeyID());
+		video.setDate(PartyUtil.getCurrentDateString());
+		getSqlMapClientTemplate().insert("mainTableService.videoAdd", video);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", PartyUtil.getKeyID());
+		map.put("vedioID", video.getVideoID());
+		map.put("userID", video.getVideoOwner());
+		getSqlMapClientTemplate().insert("mainTableService.videoPublish", map);
+		isSuccess = true;		
+		return isSuccess;
+	}
+	@SuppressWarnings("unchecked")
+	public List<Object>videoSummary(){
+		return getSqlMapClientTemplate().queryForList("mainTableService.videoSummary");
+	}
+	
+	public boolean videoPrefer(Map<String, String> map) {
+		boolean isSuccess = false;
+		String videoID = map.get("videoID");
+		getSqlMapClientTemplate().delete("mainTableService.validPreferVideo", videoID);
+		map.put("id", PartyUtil.getKeyID());
+		getSqlMapClientTemplate().insert("mainTableService.videoPrefer", map);
+		isSuccess = true;
+		
+		return isSuccess;
+	}
 }

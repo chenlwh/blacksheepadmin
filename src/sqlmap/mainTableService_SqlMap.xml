@@ -5,6 +5,7 @@
     
     <!-- 在根元素上指定命名空间 -->
 <sqlMap namespace="mainTableService">
+  	
     <select id="validUser" resultClass="java.util.HashMap">
     	SELECT ID FROM PARTY_USER WHERE USERNAME = #userName#
     </select>
@@ -16,6 +17,13 @@
 		(#id#,#userName#,#password#,#md5code#,#status#,#registerDate#,#isRemember#,#type#)
 	</insert>
 
+	<insert id="registerUserDetail">
+		INSERT INTO PARTY_USER_DETAILS
+		(ID, USERNAME, NICKNAME, HEADIMAGE)
+		VALUES
+		(#id#,#userName#,#userName#,#headImage#)
+	</insert>
+	
 	<select id="login" resultClass="java.util.HashMap">
 		SELECT ID FROM PARTY_USER WHERE USERNAME = #userName# and password =
 		#password# and type=#type# and status="1"
@@ -32,5 +40,28 @@
 	<insert id="addHotUser">
 		INSERT INTO PARTY_HOT_PLAYER (ID, UID, SERIES) VALUES (#id#,#hotUser#,#series#)
 	</insert>
-
+	
+	<insert id="videoAdd" parameterClass="com.party.beans.Video">
+		INSERT INTO PARTY_VEDIO_INFO (ID, vediolink, description,date,browsers,valid,tag,vedioimage) 
+		VALUES (#videoID#,#videoLink#,#videoDesc#,#date#,0,"1",#tag#,#videoImage#)
+	</insert>
+	
+	<insert id="videoPublish">
+		INSERT INTO PARTY_VEDIO_PUBLISH (ID, vedioID, userID) 
+		VALUES (#id#,#vedioID#,#userID#)
+	</insert>
+	
+	<select id="videoSummary" resultClass="java.util.HashMap">
+		SELECT v.id videoID, v.vediolink videoLink, v.description videoDesc, v.date, v.browsers, v.valid, v.tag, v.vedioimage videoImage, p.userID
+		FROM party_vedio_info v left JOIN party_vedio_publish p on v.id = p.vedioID
+	</select>
+	
+	<delete id="validPreferVideo">
+		DELETE FROM party_prefer_vedio WHERE vedioID = #videoID#
+	</delete>
+	
+	<insert id="videoPrefer">
+		INSERT INTO party_prefer_vedio (ID, vedioID, series)
+		VALUES (#id#,#videoID#,#series#)
+	</insert>
 </sqlMap>

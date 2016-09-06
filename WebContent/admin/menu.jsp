@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<ul class="nav">
 									<li><a id="prefer_video_summary" href="<%=basePath %>videosummary.action">视频详情</a></li>
 									<li><a id="prefer_video_setting" href="<%=basePath %>admin/videoPrefer.jsp">推荐视频</a></li>
-									<li><a id="prefer_video_add" href="<%=basePath %>admin/videoAdd.jsp">添加视频</a></li>
+									<li><a id="prefer_video_add" href="<%=basePath %>videoAddPage.action">添加视频</a></li>
 								</ul></li>
 
 							<li><a id="party_goods_admin">商品管理</a>
