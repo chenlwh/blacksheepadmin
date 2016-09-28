@@ -51,8 +51,7 @@
 	<property name="partyDao" ref="partyDao"></property>
 </bean>
 
-
-<bean id="partyDao" class= "com.party.dao.PartyDaoImpl">
+<bean id="partyDao" class= "com.admin.dao.PartyDaoImpl">
 	<property name="sqlMapClient" ref="sqlMapClient"></property>
 </bean>
 

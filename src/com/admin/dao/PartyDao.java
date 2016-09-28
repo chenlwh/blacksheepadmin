@@ -3,7 +3,7 @@
  * @date: Jul 27, 2016 4:35:36 PM
  * @description:All Right Reserved for Party Service.
  */
-package com.party.dao;
+package com.admin.dao;
 
 import java.util.List;
 import java.util.Map;

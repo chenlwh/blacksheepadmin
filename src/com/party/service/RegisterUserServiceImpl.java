@@ -7,7 +7,7 @@ package com.party.service;
 
 import java.util.Map;
 
-import com.party.dao.PartyDao;
+import com.admin.dao.PartyDao;
 
 /**
  * 

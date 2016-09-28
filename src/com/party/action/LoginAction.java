@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.party.dao.PartyDao;
+import com.admin.dao.PartyDao;
 import com.party.util.PartyUtil;
 
 /**

@@ -5,7 +5,7 @@
  */
 package com.party.action;
 
-import com.party.dao.PartyDao;
+import com.admin.dao.PartyDao;
 
 /**
  * 

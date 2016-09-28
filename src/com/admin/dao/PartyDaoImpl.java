@@ -3,7 +3,7 @@
  * @date: Jul 28, 2016 4:55:01 PM
  * @description:All Right Reserved for Party Service.
  */
-package com.party.dao;
+package com.admin.dao;
 
 import java.util.HashMap;
 import java.util.List;
