@@ -70,6 +70,10 @@ ul.nav-tabs.affix {
 			<div class="col-xs-3" id="myScrollspy">
 				<ul class="nav nav-tabs nav-stacked" id="myNav">
 					<li class="active"><a href="#latest">最新接口</a></li>
+					
+					<li><a href="#isfavorite">是否已经收藏</a></li>
+					<li><a href="#favorite">添加/取消收藏</a></li>
+					
 					<li><a href="#goodsvideo">打开视频商品</a></li>
 					<li><a href="#selfpage">加载个人信息</a></li>
 					<li><a href="#selfprefer">我的爆款</a></li>
@@ -94,7 +98,27 @@ ul.nav-tabs.affix {
 				<p>本页显示最新接口信息，接口持续更新中。。。</p>
 				<hr>
 				
-				<h3 id="#goodsvideo">打开视频商品</h3>
+				<h3 id="isfavorite">是否已经收藏</h3>
+				<p>http://114.55.224.29/blacksheepservice/isfavorite?name=params&id=params</p>
+				<p>params对应传入的参数</p>
+				<p>name代表登录用户名；id代表收藏的id。</p>
+				<p>返回值为code和message。</p>
+				<p>01：已收藏。</p>
+				<p>02：未收藏。</p>
+				<p>03：参数不合法。</p>
+				<hr>
+				
+				<h3 id="favorite">添加/取消收藏</h3>
+				<p>http://114.55.224.29/blacksheepservice/favorite?name=params&id=params</p>
+				<p>params对应传入的参数</p>
+				<p>name代表登录用户名；id代表收藏的id。</p>
+				<p>返回值为code和message。</p>
+				<p>01：收藏成功。</p>
+				<p>02：取消收藏。</p>
+				<p>03：参数不合法。</p>
+				<hr>
+				
+				<h3 id="goodsvideo">打开视频商品</h3>
 				<p>http://114.55.224.29/blacksheepservice/goodsvideo?param=videoID</p>
 				<p>params传入视频ID</p>
 				
